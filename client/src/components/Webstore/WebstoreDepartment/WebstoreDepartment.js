@@ -4,24 +4,15 @@ import WebstoreProductCard from '../WebstoreProductCard/WebstoreProductCard'
 
 export default function WebstoreDepartment(props) {
 
-    let sortByCategories = [];
-    let categories = [];
-
-    let sortByDepartments = [];
-    let departments = [];
-
-    props.pluData.map(department =>
-        sortByDepartments.push(department.itemDepartment)
-        )
-        departments = [...new Set(sortByDepartments)]
-        console.log(departments)
 
 
     return (
         <div>
-            
-            {props.pluData.map(itemData =>  
-                        <WebstoreProductCard key={itemData._id} itemName={itemData.itemDescription} itemType={itemData.itemType} itemPrice={itemData.itemPrice} itemCode={itemData.itemCode} />
+            <h3>{props.id}</h3>
+            {props.pluData.map(itemData =>
+                        itemData.itemDepartment === props.id ?
+                        <WebstoreProductCard key={itemData._id} itemDescription={itemData.itemDescription} itemType={itemData.itemType} itemPrice={itemData.itemPrice} itemCode={itemData.itemCode} itemImage={itemData.itemImage} />                            
+                        : null
                     )} 
         </div>
     )

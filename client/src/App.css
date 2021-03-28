@@ -1,22 +1,61 @@
-.App {
-  text-align: center;
+#header-inside {
+  max-width: 1400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#header-inside #store-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    -webkit-animation: App-logo-spin infinite 20s linear;
-            animation: App-logo-spin infinite 20s linear;
-  }
+#header-inside #store-info #store-name, #header-inside #store-info #store-slogan {
+  margin-right: 3rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#header-inside #store-contact * {
+  margin-left: 1rem;
+}
+
+#nav-inside {
+  max-width: 1400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#below-header {
+  width: 1400px;
+  margin: auto;
+  font-size: 0.75rem;
+}
+
+main {
+  width: 1400px;
+  margin: auto;
+}
+
+#footer-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,39 +63,92 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 1400px;
+  margin: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#footer-container ul {
+  list-style-type: none;
+  margin-left: -2.5rem;
+}
+
+#footer-container #footer-menus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
   color: white;
+  background-color: black;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+header a, footer a {
+  color: white;
+  text-decoration: none;
 }
 
-@-webkit-keyframes App-logo-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+header ahover, footer ahover {
+  text-decoration: underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+header nav, footer nav {
+  background-color: darkred;
+  font-weight: bold;
+}
+
+header nav *, footer nav * {
+  margin-right: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+
+header nav *:last-child, footer nav *:last-child {
+  margin-right: 0;
+}
+
+#footer-copyright {
+  margin: auto;
+}
+
+#site-search input[type="text"] {
+  border-style: none;
+  border-radius: 15px 0 0 15px;
+  height: 1.5rem;
+  margin-right: 0;
+  padding-left: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#site-search input[type="button"] {
+  border-style: none;
+  border-radius: 0 15px 15px 0;
+  height: 1.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-left: 0;
+  text-transform: uppercase;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: green;
 }
 /*# sourceMappingURL=App.css.map */

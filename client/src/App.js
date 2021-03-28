@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -22,7 +22,6 @@ componentDidMount()  {
     fetch('/data/plu-data')
         .then(res => res.json())
         .then(plu_data => this.setState({plu_data}, () => console.log('data fetched..', plu_data)))
-        console.log(this.state)
 }
   
 
@@ -42,14 +41,14 @@ componentDidMount()  {
 
 
 
-            <div>
+            {/* <div>
                 <h2>PLU DataSet</h2>
                 <ul>
                     {this.state.plu_data.map(item =>
                         <li key={item.itemCode}>{item.itemCode} {item.itemDescription} {item.itemType}</li>    
                     )}
                 </ul>
-            </div>
+            </div> */}
             </>
     )
   }

@@ -1,0 +1,63 @@
+$site-width: 1400px;
+
+#header-inside  {
+    max-width: $site-width;
+    margin: auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    #store-info  {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+
+        #store-name, #store-slogan  {
+            margin-right: 3rem;
+        }
+    }
+
+    #store-contact *  {
+        margin-left: 1rem;
+    }
+}
+
+#nav-inside  {
+    max-width: $site-width;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#below-header  {
+    width: $site-width;
+    margin: auto;
+    font-size: 0.75rem;
+}
+
+main  {
+    width: $site-width;
+    margin: auto;
+}
+
+#footer-container  {
+    display: flex;
+    flex-direction: column;
+    width: $site-width;
+    margin: auto;
+    flex-wrap: wrap;
+
+    ul  {
+       list-style-type: none; 
+       margin-left: -2.5rem;
+    }
+    
+    #footer-menus  {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+} 

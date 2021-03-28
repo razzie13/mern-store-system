@@ -5,11 +5,11 @@ export default function WebstoreProductCard(props) {
     let idClasses = ["price-amount-", props.itemCode]
 
     return (
-        <div id={idClasses.join('')} class="food-item-section">
-            <img src="" width="200" alt={props.itemDescription}></img>
-            <h3></h3>
-                <div id="price-amount-" class="price-and-amount">
-                    <h4>{props.itemDescription} {props.itemType}</h4>
+        <div id={idClasses.join('')} className="food-item-section">
+            <img src={props.itemImage === 'images/' + props.id ? 'images/produce/z-image-not-available.jpg' : props.itemImage} width="200" alt={props.itemDescription}></img>
+            <h3>Product Name</h3>
+                <div id="price-amount-" className="price-and-amount">
+                    <h4>{props.itemDescription + ' ' + props.itemType}</h4>
                     {/* <form action="/webstore-shop" method="POST"></form>
                         <label for="">Quantity: </label>
                         <input id="" class="price-and-amount-quantity" name="quantity" type="number" min="0">
