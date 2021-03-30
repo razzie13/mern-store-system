@@ -1,11 +1,16 @@
 import React from 'react'
 
+import Disclaimer from '../WebstoreDisclaimer/WebstoreDisclaimer'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 export default function Footer() {
     return (
         <>
         <footer>
             <div id="footer-container">
-                <div id="footer-store-name">Town Market is a fake demonstration store that sells nothing except the website development skills of very real web developer Greg Rasmussen, who built this site from scratch using NodeJS, Express, and MongoDB. You can visit his page at gregrasmussen.com to see his works and portfolio.</div>
+                <div id="footer-store-name"><Disclaimer /> You can visit his page at gregrasmussen.com to see his works and portfolio.</div>
                 <div id="footer-menus">
                     <div className="hide-on-mobile">
                         <ul>
@@ -22,10 +27,10 @@ export default function Footer() {
                     </div>
                     <div className="hide-on-mobile">
                         <ul>
-                            <li>Fake Facebook</li>
-                            <li>Fake Instagram</li>
-                            <li>Fake Linkedin</li>
-                            <li>Fake Twitter</li>
+                            <li><FontAwesomeIcon icon={faFacebook} /> Fake Facebook</li>
+                            <li><FontAwesomeIcon icon={faInstagram} /> Fake Instagram</li>
+                            <li><FontAwesomeIcon icon={faLinkedin} /> Fake Linkedin</li>
+                            <li><FontAwesomeIcon icon={faTwitter} /> Fake Twitter</li>
                         </ul>
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-export default function Nav() {
+export default function Nav(props) {
+
     return (
         <>
             <Router>
@@ -15,7 +16,9 @@ export default function Nav() {
                             <Link to="/bulk">Bulk</Link>   
                         </div>
                         <div if="nav-shopping-cart">
-                            0 items in cart
+                            <span>{props.totalItemsInCart} items in cart | <span onClick={props.showShoppingCartAction}>view cart</span></span>
+                            {props.loggedIn ? null : <span>login</span>}
+                              
                         </div>
                     </div>
                     

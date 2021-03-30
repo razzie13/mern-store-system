@@ -15,7 +15,7 @@ export default function WebstoreLogin() {
                 <input type="text" placeholder="username" ref={userName} />
                 <input type="text" placeholder="password" ref={userPass} />
 
-                <input type="button" value="search" onClick={handleLoginClick} />
+                <input type="button" value="log in" onClick={handleLoginClick} />
             </form>  
         </div>
         

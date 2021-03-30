@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
-
 import Webstore from './components/Webstore/Webstore'
+
+const axios = require('axios')
 
 export default class App extends Component {
 
@@ -84,9 +85,20 @@ hideSearchPopup = () => {
 handleSearchClick = (e) => {
 
   e.preventDefault();
-  fetch('/data/search-by-item-code')
-       .then(res => res.json())
-       .then(plu_data => this.setState({plu_data}, () => console.log('data fetched..', plu_data)))
+  //axios.get('/data/plu-data', { params: { itemCode: e.target[0].value }})
+
+  axios.get('/data/plu-data', {
+    params: {
+      itemCode: e.target[0].value    }
+  })
+
+
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(error => console.log(error))
+       //.then(res => res.json())
+       //.then(plu_data => this.setState({plu_data}, () => console.log('data fetched..', plu_data)))
       
   this.setState({
     searched_item: e.target[0].value
@@ -129,17 +141,6 @@ handleSearchClick = (e) => {
                 
               </Switch>
             </Router>
-
-
-
-            {/* <div>
-                <h2>PLU DataSet</h2>
-                <ul>
-                    {this.state.plu_data.map(item =>
-                        <li key={item.itemCode}>{item.itemCode} {item.itemDescription} {item.itemType}</li>    
-                    )}
-                </ul>
-            </div> */}
             </>
     )
   }

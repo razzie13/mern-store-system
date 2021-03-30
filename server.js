@@ -35,11 +35,36 @@ app.get('/data/plu-data', (req, res) => {
         response = data;
         const dataResponse = data;
         res.json(dataResponse)
-        console.log('success: /data/plu-data');
+        console.log('success: /data/plu-data .get');
     }
 });
    
 })
+
+// --------------------------------------------------------------------------------------------------------------------
+// ---------------   SEARCH BAR QUERIES   -----------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
+// app.get("/data/search-by-item-code", (req, res) => {
+//     console.log("Accessed : /data/search-by-item-code .get");
+//     //let itemCodeFormField = req.body.itemCode;
+//     var response = {};
+//     plu_data.find({},
+//         function(err,data){
+//             if(err) {
+//                 response = "Sorry, Nothing Matches your Search."
+//             } else {
+//                 response = data;
+//                 const dataResponse = data;
+//                 res.json(dataResponse);
+//                 console.log("Success : /data/search-by-item-code .get");
+//                 console.log(data)
+//             }
+            
+            
+            
+//         });
+// });
+
 
 // --------------------------------------------------------------------------------------------------------------------
 // ---------------   WEBSTORE   ---------------------------------------------------------------------------------------

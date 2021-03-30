@@ -47,6 +47,7 @@ main  {
     width: $site-width;
     margin: auto;
     flex-wrap: wrap;
+    padding-top: 2rem;
 
     ul  {
        list-style-type: none; 
@@ -61,3 +62,10 @@ main  {
     }
 
 } 
+
+#item-display-area  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    background-color: lightgray;
+}
