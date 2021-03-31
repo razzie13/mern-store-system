@@ -32,7 +32,7 @@ export default function WebstoreProductCard(props) {
                     <input defaultValue={props.itemCode} name="itemPluCode" ref={itemPluCode} />
                     <button type="submit" className="add-to-order-button" ref={addToCart}>add to order</button>
                 </form>
-                
+
             </div>
         </div>
     )

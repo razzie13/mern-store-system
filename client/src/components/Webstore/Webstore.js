@@ -26,11 +26,11 @@ export default function Webstore(props) {
             {props.showShoppingCart ? <ShoppingCart shoppingCartContents={props.shoppingCartContents} hideShoppingCartAction={props.hideShoppingCartAction}/> : null}
                 <Router>
                     <Switch>
-                        <Route path="/produce"><Department id="Produce" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
-                        <Route path="/meat"><Department id="Meat" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
-                        <Route path="/grocery"><Department id="Grocery" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
-                        <Route path="/bulk"><Department id="Bulk" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
-                        <Route path="/" exact><Main pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
+                        <Route exact path="/produce"><Department id="Produce" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
+                        <Route exact path="/meat"><Department id="Meat" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
+                        <Route exact path="/grocery"><Department id="Grocery" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
+                        <Route exact path="/bulk"><Department id="Bulk" pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
+                        <Route exact path="/"><Main pluData={props.pluData} addToShoppingCart={props.addToShoppingCart} /></Route>
                     </Switch>
                 </Router>
             </main>

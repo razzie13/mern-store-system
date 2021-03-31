@@ -16,8 +16,9 @@ export default function WebstoreSearch(props) {
 
     return (
         <div id="site-search">
+            {/* <form action="/data/plu-data" method="GET"> */}
             <form onSubmit={props.action} method="GET">
-                <input type="text" name="itemCode" placeholder={totalItems.join('')} ref={itemSearch} />
+                <input type="text" name="itemCode" placeholder={props.numberOfItems !== null ? totalItems.join('') : null} ref={itemSearch} />
                 <button type="submit">search</button>
             </form>  
         </div>

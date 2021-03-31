@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Webstore from './components/Webstore/Webstore'
 
-const axios = require('axios')
+//const axios = require('axios')
 
 export default class App extends Component {
 
@@ -16,7 +16,7 @@ export default class App extends Component {
         store_slogan: 'Your Local Supermarket',
         plu_data: [],
         product_searched: false,
-        searched_item: null,
+        searched_item: [],
         shopping_cart: [],
         show_shopping_cart: false,
         logged_in: false
@@ -83,36 +83,28 @@ hideSearchPopup = () => {
 }
 
 handleSearchClick = (e) => {
-
+  console.log(e.target[0].value)
+  //console.log(typeof(e.target[0].value))
   e.preventDefault();
-  //axios.get('/data/plu-data', { params: { itemCode: e.target[0].value }})
-
-  axios.get('/data/plu-data', {
-    params: {
-      itemCode: e.target[0].value    }
-  })
-
+  let storeItems = this.state.plu_data
+  storeItems.filter(item => item.itemCode == e.target[0].value)
+            .map(filteredItem => console.log(filteredItem))
+  /*
+  axios.get('/data/plu-data?', { params: { itemCode: e.target[0].value }})
 
       .then((response) => {
         console.log(response)
       })
       .catch(error => console.log(error))
-       //.then(res => res.json())
-       //.then(plu_data => this.setState({plu_data}, () => console.log('data fetched..', plu_data)))
       
   this.setState({
     searched_item: e.target[0].value
   }, () => {
     console.log(this.state.searched_item)
   })
-
-  //itemSearch.current.focus();  
-  //  fetch('/data/search-by-item-code')
-  //      .then(res => res.json())
-  //      .then(plu_data => this.setState({plu_data}, () => console.log('data fetched..', plu_data)))
+  */
   console.log('function handleSearchClick')
-  //console.log(this.state.searched_item)
-
+  console.log(this.state.searched_item)
   this.showSearchPopup()
 }
 
