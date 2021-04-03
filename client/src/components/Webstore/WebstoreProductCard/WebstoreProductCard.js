@@ -29,7 +29,7 @@ export default function WebstoreProductCard(props) {
                     <label>Quantity:
                         <input className="price-and-amount-quantity" name="quantity" ref={itemQuantity} type="number" min="0" />
                     </label>
-                    <input defaultValue={props.itemCode} name="itemPluCode" ref={itemPluCode} />
+                    <input defaultValue={props.itemCode} name="itemPluCode" ref={itemPluCode} readonly />
                     <button type="submit" className="add-to-order-button" ref={addToCart}>add to order</button>
                 </form>
 

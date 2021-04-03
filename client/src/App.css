@@ -302,4 +302,15 @@ header nav *:last-child, footer nav *:last-child {
   padding: 0.5rem;
   font-weight: bold;
 }
+
+#nav-inside-links form {
+  margin-top: -44px;
+  margin-left: 86px;
+}
+
+#nav-inside-links input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 /*# sourceMappingURL=App.css.map */

@@ -10,7 +10,9 @@ export default function WebstoreDepartment(props) {
         <>
             <h3>{props.id}</h3>
             <div id="item-display-area">
-                {props.pluData.filter(department => department.itemDepartment == props.id)
+                
+                {// eslint-disable-next-line 
+                props.pluData.filter(department => department.itemDepartment == props.id)
                               .map(itemData =>
                                     <WebstoreProductCard 
                                         id={props.id} 

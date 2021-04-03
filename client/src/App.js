@@ -14,27 +14,21 @@ export default class App extends Component {
     this.state = {
         store_name: 'Town Market',
         store_slogan: 'Your Local Supermarket',
-        plu_data: [],
+        plu_data_amount: null,
         product_searched: false,
-        searched_item: [],
         shopping_cart: [],
         show_shopping_cart: false,
-        logged_in: false
+        logged_in: false,
+        searched_item: null
     }
 
-    this.handleSearchClick = this.handleSearchClick.bind(this);
     this.addItemsToShoppingCart = this.addItemsToShoppingCart.bind(this);
     this.showShoppingCart = this.showShoppingCart.bind(this);
     this.hideShoppingCart = this.hideShoppingCart.bind(this);
     this.showSearchPopup = this.showSearchPopup.bind(this);
     this.hideSearchPopup = this.hideSearchPopup.bind(this);
-}
-
-componentDidMount()  {
-  console.log('componentDidMount')
-    fetch('/data/plu-data')
-        .then(res => res.json())
-        .then(plu_data => this.setState({plu_data}, () => console.log('data fetched..', plu_data)))
+    this.searchSite = this.searchSite.bind(this);
+    this.navigateSiteCategories = this.navigateSiteCategories.bind(this);
 }
 
 addItemsToShoppingCart = (e) => {
@@ -82,33 +76,29 @@ hideSearchPopup = () => {
   })  
 }
 
-handleSearchClick = (e) => {
-  console.log(e.target[0].value)
-  //console.log(typeof(e.target[0].value))
-  e.preventDefault();
-  let storeItems = this.state.plu_data
-  storeItems.filter(item => item.itemCode == e.target[0].value)
-            .map(filteredItem => console.log(filteredItem))
-  /*
-  axios.get('/data/plu-data?', { params: { itemCode: e.target[0].value }})
+navigateSiteCategories = e => {
+  e.preventDefault()
+  console.log(e)
+  console.log(e.target.value)
+  console.log('navigateSiteCategories')
+  fetch('/data/search/?itemDepartment=' + e.target.value)
+      .then(res => res.json())
+      .then(data => console.log(data))
+}
 
-      .then((response) => {
-        console.log(response)
-      })
-      .catch(error => console.log(error))
-      
-  this.setState({
-    searched_item: e.target[0].value
-  }, () => {
-    console.log(this.state.searched_item)
-  })
-  */
-  console.log('function handleSearchClick')
-  console.log(this.state.searched_item)
+searchSite = e => {
+  e.preventDefault()
+  console.log(e.target[0].value)
+  console.log('searchSite')
+  fetch('/data/search/?itemCode=' + e.target[0].value)
+      .then(res => res.json())
+      //.then(data => console.log(data))
+      .then(data => this.setState({ searched_item: e.target[0].value }, () => console.log(data)) )
+     
   this.showSearchPopup()
 }
 
-  render() {
+render() {
     
     return (
       <>
@@ -117,8 +107,8 @@ handleSearchClick = (e) => {
                 <Route path="/">
                   <Webstore storeName={this.state.store_name} 
                             storeSlogan={this.state.store_slogan} 
-                            pluData={this.state.plu_data} 
-                            action={this.handleSearchClick} 
+                            pluData={this.state.plu_data_amount} 
+                            action={this.searchSite} 
                             addToShoppingCart={this.addItemsToShoppingCart} 
                             showShoppingCart={this.state.show_shopping_cart} 
                             showShoppingCartAction={this.showShoppingCart} 
@@ -128,7 +118,8 @@ handleSearchClick = (e) => {
                             productSearched={this.state.product_searched}
                             searchedItem={this.state.searched_item}
                             hideSearchPopup={this.hideSearchPopup}
-                            loggedIn={this.state.logged_in}/>
+                            loggedIn={this.state.logged_in}
+                            siteNavigation={this.navigateSiteCategories}/>
                 </Route>
                 
               </Switch>

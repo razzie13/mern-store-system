@@ -35,7 +35,7 @@ export default function Header(props) {
                 </div>    
                     
             </div> 
-            <Nav totalItemsInCart={props.totalItemsInCart} showShoppingCartAction={props.showShoppingCartAction} loggedIn={props.loggedIn}/>
+            <Nav totalItemsInCart={props.totalItemsInCart} showShoppingCartAction={props.showShoppingCartAction} loggedIn={props.loggedIn} siteNavigation={props.siteNavigation}/>
         </header>
 
         <div id="below-header">
