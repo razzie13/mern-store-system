@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Header from '../Webstore/Header/Header'
 import Footer from '../Webstore/Footer/Footer'
@@ -35,7 +35,8 @@ export default class Webstore extends Component {
                 <main>
                 {this.props.productSearched ? <SearchPopup searchedItem={this.props.searchedItem} hideSearchPopup={this.props.hideSearchPopup} pluData={this.props.pluData}/> : null}
                 {this.props.showShoppingCart ? <ShoppingCart shoppingCartContents={this.props.shoppingCartContents} hideShoppingCartAction={this.props.hideShoppingCartAction}/> : null}
-                    <Router>
+                <Department pluData={this.props.currentData} currentDepartment={this.props.currentDepartment} addToShoppingCart={this.props.addToShoppingCart} />
+                    {/* <Router>
                         <Switch>
                             <Route exact path="/produce"><Department id="Produce" pluData={this.props.pluData} addToShoppingCart={this.props.addToShoppingCart} /></Route>
                             <Route exact path="/meat"><Department id="Meat" pluData={this.props.pluData} addToShoppingCart={this.props.addToShoppingCart} /></Route>
@@ -43,7 +44,7 @@ export default class Webstore extends Component {
                             <Route exact path="/bulk"><Department id="Bulk" pluData={this.props.pluData} addToShoppingCart={this.props.addToShoppingCart} /></Route>
                             <Route exact path="/"><Main pluData={this.props.pluData} addToShoppingCart={this.props.addToShoppingCart} /></Route>
                         </Switch>
-                    </Router>
+                    </Router> */}
                 </main>
                 
                 <Footer />

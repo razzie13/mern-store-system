@@ -22,7 +22,7 @@ const plu_data = connection_plu_data.model('store_plu_data', require('./connecti
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
 // --------------------------------------------------------------------------------------------------------------------
-// ---------------   TEST ROUTE   -------------------------------------------------------------------------------------
+// ---------------   SITE SEARCH   ------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------------------------------------
 
 app.get('/data/search', (req, res) => {
@@ -37,18 +37,18 @@ app.get('/data/search', (req, res) => {
         const dataResponse = data;
         res.json(dataResponse)
         console.log('success: /data/search .get');
-        //console.log(data)
     }
 });
    
 })
 
+// --------------------------------------------------------------------------------------------------------------------
+// ---------------   GET ALL DATA  ------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 
 app.get('/data/plu-data', (req, res) => {
     console.log('/data/plu_data accessed')
 
-
-    //let search_key = req.query
     var response = {};
     plu_data.find({},function(err,data){
     if(err) {
@@ -62,57 +62,6 @@ app.get('/data/plu-data', (req, res) => {
 });
    
 })
-
-
-// --------------------------------------------------------------------------------------------------------------------
-// ---------------   SEARCH BAR   -------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------
-
-// app.get("/data/plu-data?itemCode=", (req, res, next) => {
-//     console.log("query:")
-//     console.log(req.query)
-//     console.log("params:")
-//     console.log(req.params)
-
-//     let search_key = req.param('itemCode')
-//     var response = {};
-//     plu_data.find({search_key}, ( err,data ) => {
-//     if(err) {
-//         response = {"error" : true,"message" : "Error fetching data"};
-//     } else {
-//         response = data;
-//         const dataResponse = data;
-//         res.json(dataResponse)
-//         console.log('success: /data/plu-data/:itemCode .get');
-//     }
-// });
-   
-// })
-
-
-// --------------------------------------------------------------------------------------------------------------------
-// ---------------   SEARCH BAR QUERIES   -----------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------
-// app.get("/data/search-by-item-code", (req, res) => {
-//     console.log("Accessed : /data/search-by-item-code .get");
-//     //let itemCodeFormField = req.body.itemCode;
-//     var response = {};
-//     plu_data.find({},
-//         function(err,data){
-//             if(err) {
-//                 response = "Sorry, Nothing Matches your Search."
-//             } else {
-//                 response = data;
-//                 const dataResponse = data;
-//                 res.json(dataResponse);
-//                 console.log("Success : /data/search-by-item-code .get");
-//                 console.log(data)
-//             }
-            
-            
-            
-//         });
-// });
 
 
 // --------------------------------------------------------------------------------------------------------------------

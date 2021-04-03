@@ -16,6 +16,8 @@ export default class App extends Component {
         store_slogan: 'Your Local Supermarket',
         plu_data_amount: null,
         product_searched: false,
+        current_department: null,
+        current_data: [],
         shopping_cart: [],
         show_shopping_cart: false,
         logged_in: false,
@@ -78,17 +80,14 @@ hideSearchPopup = () => {
 
 navigateSiteCategories = e => {
   e.preventDefault()
-  console.log(e)
-  console.log(e.target.value)
   console.log('navigateSiteCategories')
   fetch('/data/search/?itemDepartment=' + e.target.value)
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => this.setState({ current_data: data, current_department: e.target.value })) 
 }
 
 searchSite = e => {
   e.preventDefault()
-  console.log(e.target[0].value)
   console.log('searchSite')
   fetch('/data/search/?itemCode=' + e.target[0].value)
       .then(res => res.json())
@@ -117,6 +116,8 @@ render() {
                             itemsInShoppingCart={this.state.shopping_cart.length}
                             productSearched={this.state.product_searched}
                             searchedItem={this.state.searched_item}
+                            currentData={this.state.current_data}
+                            currentDepartment={this.state.current_department}
                             hideSearchPopup={this.hideSearchPopup}
                             loggedIn={this.state.logged_in}
                             siteNavigation={this.navigateSiteCategories}/>

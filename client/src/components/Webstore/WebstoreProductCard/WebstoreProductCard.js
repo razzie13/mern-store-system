@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 
 export default function WebstoreProductCard(props) {
 
+    console.log(props)
+
     let idClasses = ["price-amount-", props.itemCode]
 
     const itemQuantity = useRef(null)
@@ -11,7 +13,7 @@ export default function WebstoreProductCard(props) {
     return (
         <div id={idClasses.join('')} className="food-item-section">
             <div className="card-top">
-                <img src={props.itemImage === ('images/' + props.id.toLowerCase() + '/') ? 'images/produce/z-image-not-available.jpg' : props.itemImage} width="200" alt={props.itemDescription}></img>
+                <img src={props.itemImage === ('images/' + props.currentDepartment.toLowerCase() + '/') ? 'images/produce/z-image-not-available.jpg' : props.itemImage} width="200" alt={props.itemDescription}></img>
                 <h3>{props.itemDescription + ' ' + props.itemType}</h3>
             </div>
 
